@@ -4,8 +4,8 @@ const EitherMessage = ({ truthMessage, falseMessage, isShowTruthMessage }) =>
 <div>
   {
     isShowTruthMessage 
-    ? <p>{truthMessage}</p>
-    : <p>{falseMessage}</p>
+    ? <p className="good">{truthMessage}</p>
+    : <p className="bad">{falseMessage}</p>
   }
 </div>
 

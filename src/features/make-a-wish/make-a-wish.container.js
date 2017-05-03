@@ -22,8 +22,8 @@ class MakeAWish extends Component {
   render() {
     const { minLetters } = this.props;
     return (
-      <div>
-        <TextInput onNewVaue={this.handleWishUpdate} />
+      <div className="makeWish">
+        <TextInput onNewVaue={this.handleWishUpdate} autofocus />
         <p>{ `${this.state.count}/${minLetters}`}</p>
       </div>
     );

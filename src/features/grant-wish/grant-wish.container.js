@@ -58,11 +58,11 @@ class GrantWish extends Component {
 
   render() {
     return (
-      <div>
+      <div className="grantWish">
         { this.state.isWishMade
           ? <EitherMessage 
-            truthMessage={'Your wish is granted'}
-            falseMessage={'Your wish is not granted'}
+            truthMessage={'Your wish is granted!!!!'}
+            falseMessage={'Your wish was not granted'}
             isShowTruthMessage={this.state.isWishGranted}
           />
           : <input type="submit" onClick={this.handleClick} value={`Make Wish!`} />
