@@ -14,7 +14,6 @@ class GrantWish extends Component {
   }
 
   attemptWish(){
-    console.log('attempting wish');
     const { onWishStatus, wishCount } = this.props;
     this.setState({
       isWishGranted: wishCount >= this.state.minLetterCount,
@@ -50,7 +49,6 @@ class GrantWish extends Component {
   componentDidUpdate(prevProps) {
     const { isTimeRemaining } = this.props;
     const { isTimeRemaining : prevIsTimeRemaining } = prevProps;
-    console.log('here');
     if(isTimeRemaining !== prevIsTimeRemaining && !isTimeRemaining) {
       this.attemptWish();
     }

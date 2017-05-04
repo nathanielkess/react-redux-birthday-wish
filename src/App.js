@@ -31,11 +31,9 @@ class App extends Component {
     this.setState({
       minLetterCount: count,
     });
-    console.log('letter Count change', this.state.minLetterCount);
   }
 
   handleWishStatus(isWishGranted){
-    console.log('wish granted?', isWishGranted);
     this.setState({
       isPaused: true,
       isWishGranted
