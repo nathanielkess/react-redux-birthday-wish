@@ -1,6 +1,34 @@
-# Add Redux
+# To the store and back
 
-Now that we have an app. Let's take that state that's all over the place and move it to one spot. Redux! 
+Now that we've added redux, let's make use of it. But first, an explanation of what redux is. There are about a million good explanations on redux, so I'll describe it in the way that I think about. And I'll try to in 10 sentences. 
+
+**Redux, one million and one:** You have an app, this app. Picture it on the ground. Redux has this thing called a "store" (*it's just a big JavaScript object*). Picture the store in the sky above the app. Anytime your app needs to remember something (state), for example `isUserLoggedIn: true`, then send that information up. To the sky! Aka, the store. Anytime the store changes, it will drop that information down to the app. That's it. What goes up, must come down. 
+
+Let's do that. 
+
+##### Redux-ify the make-a-wish feature.
+
+We'll start with `make-wish-container.js`, let's take all the state out of it and move up, to the store. Just get that garbage right out of there. The first piece of state I see is the `count`.
+
+`src/features/make-a-wish/make-a-wish.container.js`
+
+```diff
+constructor(props) {
+    super(props);
++    this.state = {
++      count:0
++    }
+    this.handleWishUpdate = this.handleWishUpdate.bind(this);
+  }
+```
+
+
+
+
+
+
+
+
 
 
 
