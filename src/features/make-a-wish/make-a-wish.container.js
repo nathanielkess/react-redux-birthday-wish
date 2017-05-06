@@ -1,33 +1,12 @@
-import React, { Component } from 'react';
-import TextInput from './../../components/text-input';
+import { connect } from 'react-redux';
+import * as actionProps from './make-a-wish.actions';
+import WishBox from './../../components/wish-box';
 
-class MakeAWish extends Component {
+const stateProps = (state) => ({
+  currentCount: state.count
+});
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      count:0
-    }
-    this.handleWishUpdate = this.handleWishUpdate.bind(this);
-  }
-
-  handleWishUpdate(wish) {
-    const { onWishCountChange } = this.props;
-    this.setState({ 
-      count: wish.length 
-    });
-    onWishCountChange(this.state.count);
-  }
-
-  render() {
-    const { minLetters } = this.props;
-    return (
-      <div className="makeWish">
-        <TextInput onNewVaue={this.handleWishUpdate} autofocus />
-        <p>{ `${this.state.count}/${minLetters}`}</p>
-      </div>
-    );
-  }
-}
-
-export default MakeAWish;
+export default connect(
+  stateProps, 
+  actionProps,
+)(WishBox); 

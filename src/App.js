@@ -62,7 +62,7 @@ class App extends Component {
           <Timer 
             pause={this.state.isPaused}
             duration={15}
-            onTick={(time) => console.log('time remaining', time)}
+            onTick={(time) => {}}
             onComplete={this.handleTimerComplete}
           />
       </div>
