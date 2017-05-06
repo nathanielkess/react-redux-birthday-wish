@@ -1,4 +1,4 @@
-# To the store and back
+# Reducers
 
 Now that we've added redux, let's make use of it. But first, an explanation of what redux is. There are about a million good explanations on redux, so I'll describe it in the way that I think about it. And I'll try to in 10 sentences. 
 
@@ -121,100 +121,5 @@ If you look at the rest of this snippet, it's just a switch statement. A `reduce
 
 So what's this `action` business? 
 
-### Actions
-
-Remember where the `store ` and the `app` are sitting? The `app` is on the ground and above it, in the sky, is the `store`. We also said that the `app` can send information up the the `store`. To send information *up* you use an `action`. 
-
-
-
-Consider a button, anytime you click a button, you want to change the value of the `count` property on the store. To do that you would fire an action every time that button is clicked. An action is an object with, at least, one property:
-
-
-
-
-
-
-
-
-
-Install redux:
-
-```
-npm install redux --save
-```
-
-
-
-Install react-redux
-
-```
-npm install react-redux --save
-```
-
-
-
-Install redux-logger (optional, but just do it)
-
-```
-npm install redux-logger --save
-```
-
-
-
-Now let's tell the app that there is a **redux store**.
-
-Create a new file a for at `src/store.js`
-
-```javascript
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
-import { createLogger } from 'redux-logger';
-
-const logger = createLogger({
-  collapsed: true,
-});
-
-const rootReducer = combineReducers({
-});
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const store = createStore(
-  rootReducer,
-  composeEnhancers(
-    applyMiddleware(logger),
-  ),
-);
-
-export default store;
-
-```
-
-So far this doesn't do anything. You'll have to take the exported `store` and *provide* it to the app.  Later you'll find out what `createLogger`,  `combineReducers` and `comoseEnhancers` is all about.  
-
-Now *provide* the store to the app. Open `src/index.js` and update as follows.
-
-```diff
-
-import React from 'react';
-+ import { Provider } from 'react-redux';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
-+ import store from './store';
-
-
-ReactDOM.render(
-+  <Provider store={store}>
-    <App />
-+  </Provider>,
-  document.getElementById('root'),
-);
-
-```
-
-If you run that app, there's no real magical change. Even worse, there's probably a new console error about `reducers`. Which is a perfect segue to the next bit. 
-
-**The First Reducer.**
-
-Switch to branch `02-first-reducer`
+Switch to branch `03-Actions`
 
