@@ -1,6 +1,6 @@
 # Redux the rest
 
-Let's move on to the grant-a-wish feature and apply the redux patter to it.
+Let's move on to the grant-a-wish feature and apply the redux pattern to it.
 
 Open `src/features/grant-wish.container.js`
 
@@ -8,14 +8,64 @@ We'll do the following:
 
 - pull out each piece of state and move it to the store with a reducer
 - convert the component to a dumb component 
-
-
 - write the necessary actions so the component can send data to the store
+
+
 - apply stateProps and actionsProps to the component with the `connect()` HOC function from `react-redux`.
 
 First let's add the state to the store.  There are three items: `minLetterCount`, `isWishGranted` and `isWishMade`. 
 
 Create a new file: `src/features/grant-wish/grant-wish.reducers.js`
+
+```jsx
+
+const getRandomNumber = () => {
+  const min = 25; 
+  const max = 80;
+  return Math.floor(Math.random()*(max-min+1)+min);
+};
+
+const initialMinLetterState = getRandomNumber();
+export const minLetterCount = (state = initialMinLetterState, action) => {
+    return state;
+}
+
+const initialIsWishMadeState = false;
+export const isWishMade = (state = initialIsWishMadeState, action) => {
+    switch (action.type) {
+    case 'WISH_MADE' :
+      return true;
+    default:
+      return state;
+  }
+}
+```
+
+Here we created 2 reducers `minLetterCount` and `isWishMade` . 
+
+`minLetterCount` does not listen for any particular action. So it can never update.  It sets it's property on the store to a random number when the state is initialized. 
+
+`isWishMade` listens for the `WISH_MADE` action and sets it's property to true. 
+
+We're leaving out the `isWishGranted` on purpose because that value can be calculated from the contents of the store, so there's no point in added a property for it.  You'll see that shortly. 
+
+Next open `src/store.js` import the two reducers and added them to the `rootReducer`. 
+
+```diff
+...
++ import { minLetterCount, isWishMade } from './features/grant-wish/grant-wish.reducers';
+
+const logger = createLogger({
+  collapsed: true,
+});
+
+const rootReducer = combineReducers({
+  count,
++  minLetterCount,
++  isWishMade,
+});
+...
+```
 
 
 
