@@ -1,6 +1,27 @@
-# Actions
+# Redux the rest
 
-Remember where the `store ` and the `app` are sitting? The `app` is on the ground and above it, in the sky, is the `store`. We also said that the `app` can send information up the the `store`. To send information *up* you use an `action`. An action is an object with, at least, one property `type`:
+Let's move on to the grant-a-wish feature and apply the redux patter to it.
+
+Open `src/features/grant-wish.container.js`
+
+We'll do the following:
+
+- pull out each piece of state and move it to the store with a reducer
+- convert the component to a dumb component 
+
+
+- write the necessary actions so the component can send data to the store
+- apply stateProps and actionsProps to the component with the `connect()` HOC function from `react-redux`.
+
+First let's add the state to the store.  There are three items: `minLetterCount`, `isWishGranted` and `isWishMade`. 
+
+Create a new file: `src/features/grant-wish/grant-wish.reducers.js`
+
+
+
+
+
+
 
 ```javascript
 {
