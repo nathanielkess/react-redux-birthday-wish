@@ -6,8 +6,16 @@ const getRandomNumber = () => {
 };
 
 const initialMinLetterState = getRandomNumber();
-export const minLetterCount = (state = initialMinLetterState, action) => {
+export const minLetterCount = (state = initialMinLetterState) => {
     return state;
 }
 
-
+const initialIsWishMadeState = false;
+export const isWishMade = (state = initialIsWishMadeState, { type }) => {
+    switch (type) {
+    case 'WISH_MADE' :
+      return true;
+    default:
+      return state;
+  }
+}

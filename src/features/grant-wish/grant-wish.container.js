@@ -1,73 +1,14 @@
-import React, { Component } from 'react';
-import EitherMessage from './../../components/either-message';
+import { connect } from 'react-redux';
+import * as actionProps from './grant-wish.actions'
+import GrantWish from './../../components/grant-wish';
  
+const stateProps = (state) => ({
+  minLetterCount: state.minLetterCount,
+  isWishMade: state.isWishMade,
+  isWishGranted: (state.count >= state.minLetterCount)
+})
 
-class GrantWish extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      minLetterCount: 0,
-      isWishGranted: false,
-      isWishMade: false,
-    }
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  attemptWish(){
-    const { onWishStatus, wishCount } = this.props;
-    this.setState({
-      isWishGranted: wishCount >= this.state.minLetterCount,
-      isWishMade: true,
-    });
-    setTimeout(() => {
-      onWishStatus(this.state.isWishGranted);
-    }, 0);
-  }
-
-  handleClick(event) {
-    event.preventDefault();
-    this.attemptWish();
-  }
-
-  getRandomNumber(){
-    const min = 25; 
-    const max = 80;
-    return Math.floor(Math.random()*(max-min+1)+min);
-  }
-
-  componentWillMount(){
-    this.setState({
-      minLetterCount: this.getRandomNumber(),
-    });
-  }
-
-  componentDidMount(){
-    const { onMinLetterCount } = this.props;
-    onMinLetterCount(this.state.minLetterCount);
-  }
-
-  componentDidUpdate(prevProps) {
-    const { isTimeRemaining } = this.props;
-    const { isTimeRemaining : prevIsTimeRemaining } = prevProps;
-    if(isTimeRemaining !== prevIsTimeRemaining && !isTimeRemaining) {
-      this.attemptWish();
-    }
-  }
-
-  render() {
-    return (
-      <div className="grantWish">
-        { this.state.isWishMade
-          ? <EitherMessage 
-            truthMessage={'Your wish is granted!!!!'}
-            falseMessage={'Your wish was not granted'}
-            isShowTruthMessage={this.state.isWishGranted}
-          />
-          : <input type="submit" onClick={this.handleClick} value={`Make Wish!`} />
-        }
-      </div>
-    );
-  }
-}
-
-export default GrantWish;
+export default connect(
+  stateProps,
+  actionProps,
+)(GrantWish)
