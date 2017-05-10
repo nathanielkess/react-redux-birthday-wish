@@ -1,10 +1,10 @@
 # React + Redux BW
 
-Quick course on React with Redux. Follow the lessons below to create the birthday app.  The app is used to determine if your birthday wish will come true. :smile:
+Quick excersise on React with Redux. The goal is to take an existing react app that has stateful components and apply the Redux pattern to it. The app we'll be working with as a Birthday wish app.  You can use it to determine if your birthday wish will come true. There's nothing rediculouse about it. 
 
-- [ ] [Lesson 1](https://github.com/nathanielkess/react-redux-birthday-wish/blob/master/Lesson-1/Lesson-1-Create-React-App.md) Use "**create react app**"
-- [ ] [Lesson 2]()
-- [ ] [Lesson 3]()
-- [ ] [Lesson 4]()
-- [ ] [Lesson 5]()
+Each lesson is in a new branch. Start with `00-component-state` and work your way to `06-wish-timer` The solution for each lesson is in the associated branch with the word `-solution` appended to it. e.g.
 
+- `03-Actions`
+- `03-Actions-Solution`
+
+Check out `00-component-state` to get started.
