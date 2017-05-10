@@ -125,5 +125,5 @@ this.state = {
 />
 ```
 
-Okay, looking a lot better. What's left? `isTimeRemaining`. Ahh crapy garbage, we didn't add that one to Redux. Alright, one more lesson. Move on to `06-wish-timer`.
+Okay, looking a lot better. What's left? `isTimeRemaining`. Ahh crapy garbage, we didn't add that one to Redux. Alright, one more exercise. Move on to `06-wish-timer`.
 
