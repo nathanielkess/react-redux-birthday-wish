@@ -14,6 +14,7 @@ const initialIsWishMadeState = false;
 export const isWishMade = (state = initialIsWishMadeState, { type }) => {
     switch (type) {
     case 'WISH_MADE' :
+    case 'WISH_TIMER_ENDED' :
       return true;
     default:
       return state;

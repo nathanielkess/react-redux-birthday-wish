@@ -5,8 +5,8 @@ import GrantWish from './../../components/grant-wish';
 const stateProps = (state) => ({
   minLetterCount: state.minLetterCount,
   isWishMade: state.isWishMade,
-  isWishGranted: (state.count >= state.minLetterCount)
-})
+  isWishGranted: (state.count >= state.minLetterCount),
+});
 
 export default connect(
   stateProps,
