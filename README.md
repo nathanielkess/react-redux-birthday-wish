@@ -151,5 +151,5 @@ const stateProps = (state) => ({
 });
 ```
 
-That's it for `grant-wish`. To wrap up the entire app, there's one more file that's riddled with local state: `src/app.js` In the next and final branch you'll use what we already added to the store to power app.js and 
+That's it for `grant-wish`. To wrap up the entire app, there's one more file that's riddled with local state: `src/app.js` In the next and final branch you'll use what we already added to the store to power app.js. 
 
