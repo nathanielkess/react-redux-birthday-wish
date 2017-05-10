@@ -58,7 +58,7 @@ ReactDOM.render(
 
 Now run the app and open up the console. What do'ya see? Nothing, well pretty much nothing, right? It's just an empty object. This makes sense because haven't _added_ the reducer to the store. Let's do that now.
 
-Open `src/store.js` . Import the `count` reducer from  `make-a-wish.reducers` and added it to the combined reducers:
+Open `src/store.js` . Import the `count` reducer from  `make-a-wish.reducers` and add it to the combined reducers:
 
 ```diff
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
@@ -117,7 +117,7 @@ When Redux creates the store, it goes and fires all the `reducers` . Here is wha
 - When I fire `count` I will always pass it two properties, `state` and `action` . No one has to worry about that, I'll always pass it those properties so you can count on them being there.
 - If I have nothing to give for `state` , I'll use a default property. In this case `countInitialState`.  This way when the app first loads there will be a value for the `count` property on the store. 
 
-If you look at the rest of this snippet, it's just a switch statement. A `reducer` 's job is to figure out when to updated a single property on the store. This switch statement is trying to figure out what `action` was fired. If the action fired was `COUNT_UPDATED` it will update the `count` property with the new returned value: `return action.payload`. Otherwise it will return what was already there `return state`. 
+If you look at the rest of this snippet, it's just a switch statement. A `reducer` 's job is to figure out when to update a single property on the store. This switch statement is trying to figure out what `action` was fired. If the action fired was `COUNT_UPDATED` it will update the `count` property with the new returned value: `return action.payload`. Otherwise it will return what was already there `return state`. 
 
 So what's this `action` business? 
 
