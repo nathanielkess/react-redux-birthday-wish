@@ -1,8 +1,30 @@
-body { background-color:#e3e3e3;}
+
+body { background-color:#353434;}
 .App { text-align: center;  }
 
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+.makeWish { width:500px; background-color:#3c97e9; margin:50px auto 0px auto; border-radius:12px; padding:0px 0px 40px 0px; box-shadow: 0px 0px 48px -3px rgba(0,0,0,0.52); }
+  .makeWish textarea { color:#ffffff;  font-family: sans-serif; font-weight: 700; font-size:18px; background-color:#3c97e9; border-collapse: collapse; border:none; width:300px; height:100px; padding:100px; border-radius:12px; text-align: center; }
+  .makeWish p { font-weight: 900; padding:10px; background-color:#ffffff; font-size:20px; color:#eb5d54; border-radius:20px; width:100px; margin:20px auto 0px auto; }
+
+.grantWish { margin:20px auto 0px auto; width:450px; }  
+  .grantWish input[type=submit] { cursor:pointer; background-color:#fc714a; padding:15px 30px; font-size:22px; font-weight:900; border:none; border-radius:5px; outline:none; color:#ffffff; }
+  .grantWish p { font-size:30px; font-weight: 900;}
+  .grantWish p.bad { color:#eb5d54;}
+  .grantWish p.good { color:#44bf72; animation: blinker .3s linear infinite;}
+
+.timer { color:#fff; font-size:45px; font-weight:900; }  
+
+@keyframes blinker {  
+  50% { opacity: 0; }
 }

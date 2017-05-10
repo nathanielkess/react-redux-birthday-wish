@@ -45,7 +45,7 @@ class Timer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="timer">
         { this.state.time }
       </div>
     );

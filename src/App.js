@@ -31,11 +31,9 @@ class App extends Component {
     this.setState({
       minLetterCount: count,
     });
-    console.log('letter Count change', this.state.minLetterCount);
   }
 
   handleWishStatus(isWishGranted){
-    console.log('wish granted?', isWishGranted);
     this.setState({
       isPaused: true,
       isWishGranted
@@ -51,24 +49,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <MakeAWish 
-          onWishCountChange={this.handleWishCountChange} 
-          minLetters={this.state.minLetterCount} 
-        />
-        <br />
-        <br />
-        <GrantWish 
-          isTimeRemaining={this.state.isTimeRemaining}
-          wishCount={this.state.wishCount} 
-          onWishStatus={this.handleWishStatus}
-          onMinLetterCount={this.handleLetterCountChange} 
-        />
-        <Timer 
-          pause={this.state.isPaused}
-          duration={15}
-          onTick={(time) => console.log('time remaining', time)}
-          onComplete={this.handleTimerComplete}
-        />
+          <MakeAWish 
+            onWishCountChange={this.handleWishCountChange} 
+            minLetters={this.state.minLetterCount} 
+          />
+          <GrantWish 
+            isTimeRemaining={this.state.isTimeRemaining}
+            wishCount={this.state.wishCount} 
+            onWishStatus={this.handleWishStatus}
+            onMinLetterCount={this.handleLetterCountChange} 
+          />
+          <Timer 
+            pause={this.state.isPaused}
+            duration={15}
+            onTick={(time) => console.log('time remaining', time)}
+            onComplete={this.handleTimerComplete}
+          />
       </div>
     );
   }
