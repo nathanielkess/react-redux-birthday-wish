@@ -260,3 +260,5 @@ export default Wishbox;
 Run the app new and you can see the count property is getting update from the store as it changes!
 
 That's it! Okay, that was a lot, but that's actually it. That should be enough to get you going with redux. I won't go over anymore new concepts.  The rest of this will be just updating the the other components to use Redux. The goal, if you look `src/app.js` is to get rid of all the ugly state and turn that into a dumb component.
+
+Checkout `04-grant-wish-redux`
